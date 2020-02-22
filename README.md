@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d5b74bf0-a7cf-4a6c-82ed-58643ef6ab84/deploy-status)](https://app.netlify.com/sites/bestoflondon/deploys)
+
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
