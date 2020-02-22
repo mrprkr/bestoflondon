@@ -10,7 +10,7 @@ import Layout from "../components/layout"
 const Venue = ({ data }) => {
   let label = "";
   let districts = []
-  if(data.District.length && data.District[0].data.Name){
+  if(data.District && data.District.length && data.District[0].data.Name){
     data.District.forEach(district => districts.push(district.data.Name))
     label = <p style={{fontSize: '0.8rem', marginBottom: '4px'}}>{districts.join("/")}</p>
   }
