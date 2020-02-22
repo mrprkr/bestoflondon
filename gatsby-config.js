@@ -1,8 +1,12 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Best Venues of London`,
+    description: `A collection of the best bars, restaurants, cafes and clubs`,
+    author: `@mrprkr`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,6 +33,34 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_KEY, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: 'Venues',
+            tableView: 'Published', // optional
+            queryName: `AirtableVenues`, // optionally default is false - makes all records in this table a separate node type, based on your tableView, or if not present, tableName, e.g. a table called "Fruit" would become "allAirtableFruit". Useful when pulling many airtables with similar structures or fields that have different types. See https://github.com/jbolda/gatsby-source-airtable/pull/52.
+            // mapping: { `LGBT Friendly`: `VALUE_FORMAT` }, // optional, e.g. "text/markdown", "fileNode"
+            tableLinks: [`District`, `Cuisine`], // optional, for deep linking to records across tables.
+            // createSeparateNodeType: false, // boolean, default is false, see the documentation on naming conflicts for more information
+            // separateMapType: false, // boolean, default is false, see the documentation on using markdown and attachments for more information
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: "Districts",
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: "Cuisines",
+          },
+        ],
+      },
+    },
   ],
 }
+
