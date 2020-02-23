@@ -8,10 +8,14 @@ import Img from "gatsby-image"
 const Card = styled.div`
   background-color: #f9fafc;
   margin-bottom: 50px;
-  /* max-width: 600px; */
   color: #131b27;
   display: grid;
   grid-template-columns: 300px 1fr;
+
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const DistrictLabel = styled.p`
@@ -52,11 +56,16 @@ const InformationContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
-	height: 100%;
-	width: 100%;
-	background-color: #222;
-	background-image: url(${props => props.src});
-	background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-color: #222;
+  background-image: url(${props => props.src});
+  background-size: cover;
+  @media (max-width: 640px) {
+    display: flex;
+		flex-direction: column;
+		height: 280px;
+  }
 `
 
 

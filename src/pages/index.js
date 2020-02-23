@@ -55,7 +55,10 @@ export default IndexPage
 
 export const query = graphql`
          query {
-           allAirtable(filter: { table: { eq: "Venues" } }) {
+           allAirtable(
+             filter: { table: { eq: "Venues" } }
+             sort: { fields: [data___District___data___Name, data___Name] }
+           ) {
              edges {
                node {
                  id
@@ -85,10 +88,10 @@ export const query = graphql`
                            height
                            src
                          }
-                        fluid(maxWidth: 300, maxHeight: 220, fit: COVER) {
-                          ...GatsbyImageSharpFluid
-                          presentationWidth
-                        }
+                         fluid(maxWidth: 300, maxHeight: 220, fit: COVER) {
+                           ...GatsbyImageSharpFluid
+                           presentationWidth
+                         }
                        }
                      }
                    }
