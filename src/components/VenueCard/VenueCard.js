@@ -13,7 +13,7 @@ const Card = styled.div`
   color: #131b27;
   display: grid;
   grid-template-columns: 300px 1fr;
-
+	min-height: 200px;
   @media (max-width: 640px) {
     display: flex;
     flex-direction: column;
