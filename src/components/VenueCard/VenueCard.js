@@ -68,6 +68,19 @@ const ImageContainer = styled.div`
   }
 `
 
+const DetailsContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+`
+
+const Cost = styled.label`
+  font-family: "IBM Plex Sans";
+  font-style: medium;
+  font-weight: 500;
+  color: #131b27;
+`
+
 
 const VenueCard = ({ data }) => {
 	// console.log(data)
@@ -76,7 +89,7 @@ const VenueCard = ({ data }) => {
 	let cuisines = []
 	let cuisinesLabel = null
 	let typeLabel = null
-	let cost = data.Cost || null
+	let cost = <Cost>{data.Cost}</Cost> || null
 
 	if(data.District.length){
 		data.District.forEach(district => {
@@ -139,12 +152,14 @@ const VenueCard = ({ data }) => {
             {cuisinesLabel}
           </TextContainer>
 
-          <div>
-            {/* <img src={iconRestaurant} alt="restautant"/> */}
-            {typeLabel}
-            {lgbtFlag}
-            {cost}
-          </div>
+          <DetailsContainer>
+            <div>
+              {typeLabel}
+              {lgbtFlag}
+            </div>
+
+            <div>{cost}</div>
+          </DetailsContainer>
         </InformationContainer>
       </Card>
     )
