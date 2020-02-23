@@ -1,28 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { graphql } from "gatsby"
+import styled from 'styled-components'
 
 // import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import VenueCard from "../components/VenueCard"
 
-const Venue = ({ data }) => {
-  let label = "";
-  let districts = []
-  if(data.District && data.District.length && data.District[0].data.Name){
-    data.District.forEach(district => districts.push(district.data.Name))
-    label = <p style={{fontSize: '0.8rem', marginBottom: '4px'}}>{districts.join("/")}</p>
-  }
-
-  return (
-    <div key={data} style={{ marginBottom: "24px" }}>
-      {label}
-      <h3 style={{ marginTop: "4px" }}>{data.Name}</h3>
-    </div>
-  )
-}
 
 const VenueList = ({ venues }) => {
   let venueList = venues.map((venue) => {
@@ -35,17 +21,42 @@ const VenueList = ({ venues }) => {
   )
 }
 
+const Heading = styled.h1`
+  font-family: "IBM Plex Serif";
+  font-weight: 400;
+  color: #131b27;
+  margin-bottom: 6px;
+`
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 24px;
+  padding-bottom: 24px;
+`
+
 const IndexPage = ({ data }) => (
   <Layout>
-    <br />
     <SEO title="Home" />
-    <h1> Best Venues of London</h1>
-    <p>A guide to restaurants, bars, cafes and clubs</p>
-    <p>
-      <a href="https://airtable.com/shrvwCH92iV3SJBUe" target="_blank">
-        Suggest a venue
-      </a>
-    </p>
+
+    <Header>
+      <div>
+        <Heading> Best Venues of London</Heading>
+        <p>A guide to restaurants, bars, cafes and clubs</p>
+      </div>
+      <div>
+        <p>
+          <a
+            href="https://airtable.com/shrvwCH92iV3SJBUe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            + Suggest a venue
+          </a>
+        </p>
+      </div>
+    </Header>
     <hr />
     <VenueList venues={data.allAirtable.edges} />
   </Layout>

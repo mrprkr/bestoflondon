@@ -38,7 +38,7 @@ const VenueTitle = styled.h2`
 	margin-bottom: 0px;
 `
 
-const CuisineLabel = styled.label`
+const CuisineLabel = styled.span`
   font-family: "IBM Plex Sans";
   font-style: normal;
   font-weight: normal;
@@ -74,7 +74,7 @@ const DetailsContainer = styled.div`
 	align-items: baseline;
 `
 
-const Cost = styled.label`
+const Cost = styled.span`
   font-family: "IBM Plex Sans";
   font-style: medium;
   font-weight: 500;
@@ -115,7 +115,7 @@ const VenueCard = ({ data }) => {
 
 	let lgbtFlag = null;
 	if(data.LGBT_Friendly){
-		lgbtFlag = <label style={{marginRight: '10px'}}>LGBT</label>
+		lgbtFlag = <span style={{marginRight: '10px'}}>LGBT</span>
 	}
 
 	let image = null

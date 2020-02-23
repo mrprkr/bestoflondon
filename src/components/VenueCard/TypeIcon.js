@@ -31,7 +31,9 @@ const TypeIcon = ({ type }) => {
       break
     case "Club":
       typeIcon = <Icon src={iconClub} alt={type} />
-      break
+			break
+		default:
+			break;
   }
   return typeIcon
 }
