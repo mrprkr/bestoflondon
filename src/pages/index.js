@@ -70,6 +70,9 @@ export const query = graphql`
                    Cost
                    LGBT_Friendly
                    Pictures {
+                     raw {
+                       url
+                     }
                      localFiles {
                        childImageSharp {
                          fixed {
@@ -77,7 +80,7 @@ export const query = graphql`
                            height
                            src
                          }
-                        fluid(maxWidth: 300, fit: COVER) {
+                        fluid(maxWidth: 300, maxHeight: 220, fit: COVER) {
                           ...GatsbyImageSharpFluid
                           presentationWidth
                         }

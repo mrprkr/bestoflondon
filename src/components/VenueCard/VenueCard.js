@@ -61,7 +61,7 @@ const ImageContainer = styled.div`
 
 
 const VenueCard = ({ data }) => {
-	console.log(data)
+	// console.log(data)
 	let districts = []
 	let districtLabel = null
 	let cuisines = []
@@ -106,7 +106,13 @@ const VenueCard = ({ data }) => {
 				alt={data.Name}
       />
     )
-  }
+  } else if (data.Pictures && data.Pictures.raw && data.Pictures.raw[0].url) {
+			// contingency for images that can't be optimised
+			image = (<img
+				src={data.Pictures.raw[0].url}
+				alt={data.Name}
+			/>)
+	}
     return (
       <Card>
         <InformationContainer>
