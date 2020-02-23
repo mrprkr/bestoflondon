@@ -10,7 +10,7 @@ import iconPrivateMembersClub from './assets/icon-private-members-club.svg'
 
 const Icon = styled.img `
 	height: 30px;
-	width: 30px;
+	width: auto;
 	margin: 0px;
 	margin-right: 10px;
 `

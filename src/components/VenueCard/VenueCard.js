@@ -64,7 +64,7 @@ const ImageContainer = styled.div`
   @media (max-width: 640px) {
     display: flex;
 		flex-direction: column;
-		height: 280px;
+		height: 230px;
   }
 `
 
