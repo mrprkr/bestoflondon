@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import VenueCard from "../components/VenueCard"
 
 const Venue = ({ data }) => {
   let label = "";
@@ -25,7 +26,7 @@ const Venue = ({ data }) => {
 
 const VenueList = ({ venues }) => {
   let venueList = venues.map((venue) => {
-    return <Venue data={venue.node.data} key={venue.node.id}/>
+    return <VenueCard data={venue.node.data} key={venue.node.id} />
   })
   return(
   <div>
@@ -55,9 +56,32 @@ export const query = graphql`
                  id
                  data {
                    Name
+                   Cuisine {
+                     data {
+                       Name
+                     }
+                   }
                    District {
                      data {
                        Name
+                     }
+                   }
+                   Type
+                   Cost
+                   LGBT_Friendly
+                   Pictures {
+                     localFiles {
+                       childImageSharp {
+                         fixed {
+                           width
+                           height
+                           src
+                         }
+                        fluid(maxWidth: 300, fit: COVER) {
+                          ...GatsbyImageSharpFluid
+                          presentationWidth
+                        }
+                       }
                      }
                    }
                  }
