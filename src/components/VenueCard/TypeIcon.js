@@ -6,6 +6,7 @@ import iconCafe from "./assets/icon-cafe.svg"
 import iconMarket from "./assets/icon-market.svg"
 import iconClub from "./assets/icon-club.svg"
 import iconBar from "./assets/icon-bar.svg"
+import iconPrivateMembersClub from './assets/icon-private-members-club.svg'
 
 const Icon = styled.img `
 	height: 30px;
@@ -32,6 +33,9 @@ const TypeIcon = ({ type }) => {
     case "Club":
       typeIcon = <Icon src={iconClub} alt={type} />
 			break
+		case "Private Members Club":
+			typeIcon = <Icon src={iconPrivateMembersClub} alt={type} />
+			break;
 		default:
 			break;
   }

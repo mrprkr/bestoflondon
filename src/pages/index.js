@@ -34,6 +34,10 @@ const Header = styled.div`
   align-items: flex-end;
   padding-top: 24px;
   padding-bottom: 24px;
+  @media (max-width: 640px){
+    flex-direction: column;
+    align-items: flex-start
+  }
 `
 
 const IndexPage = ({ data }) => (

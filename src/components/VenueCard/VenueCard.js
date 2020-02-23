@@ -71,7 +71,7 @@ const ImageContainer = styled.div`
 const DetailsContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-items: baseline;
+	align-items: center;
 `
 
 const Cost = styled.span`
@@ -115,7 +115,7 @@ const VenueCard = ({ data }) => {
 
 	let lgbtFlag = null;
 	if(data.LGBT_Friendly){
-		lgbtFlag = <span style={{marginRight: '10px'}}>LGBT</span>
+		lgbtFlag = <span>LGBT</span>
 	}
 
 	let image = null
