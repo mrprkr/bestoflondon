@@ -37,8 +37,6 @@ export const query = graphql`
         id
         data {
           Name
-          Lat
-          Lng
           Cuisine {
             data {
               Name
