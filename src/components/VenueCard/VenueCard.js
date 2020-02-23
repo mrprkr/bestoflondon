@@ -7,17 +7,17 @@ import Img from "gatsby-image"
 
 const Card = styled.div`
   background-color: #f9fafc;
-  margin-bottom: 24px;
-  max-width: 600px;
-	color: #131b27;
-	display: grid;
-	grid-template-columns: 1fr 230px;
+  margin-bottom: 50px;
+  /* max-width: 600px; */
+  color: #131b27;
+  display: grid;
+  grid-template-columns: 300px 1fr;
 `
 
 const DistrictLabel = styled.p`
   font-family: "IBM Plex Sans";
-  font-style: normal;
-  font-weight: 600;
+  font-style: medium;
+  font-weight: 500;
   font-size: 16px;
   line-height: 21px;
 	color: #131b27;
@@ -48,7 +48,7 @@ const TextContainer = styled.div`
 `
 
 const InformationContainer = styled.div`
-  padding: 20px;
+  padding: 24px;
 `
 
 const ImageContainer = styled.div`
@@ -91,6 +91,11 @@ const VenueCard = ({ data }) => {
 		typeLabel = data.Type.map(type => <TypeIcon type={type} key={type}/>)
 	}
 
+	let lgbtFlag = null;
+	if(data.LGBT_Friendly){
+		lgbtFlag = <label style={{marginRight: '10px'}}>LGBT</label>
+	}
+
 	let image = null
 	if (
     data.Pictures &&
@@ -108,13 +113,16 @@ const VenueCard = ({ data }) => {
     )
   } else if (data.Pictures && data.Pictures.raw && data.Pictures.raw[0].url) {
 			// contingency for images that can't be optimised
-			image = (<img
-				src={data.Pictures.raw[0].url}
-				alt={data.Name}
-			/>)
+			image = (
+        <ImageContainer
+          src={data.Pictures.raw[0].url}
+          alt={data.Name}
+        />
+      )
 	}
     return (
       <Card>
+        <div>{image}</div>
         <InformationContainer>
           <TextContainer>
             {districtLabel}
@@ -125,10 +133,10 @@ const VenueCard = ({ data }) => {
           <div>
             {/* <img src={iconRestaurant} alt="restautant"/> */}
             {typeLabel}
+            {lgbtFlag}
             {cost}
           </div>
         </InformationContainer>
-        <div>{image}</div>
       </Card>
     )
 }

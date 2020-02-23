@@ -41,6 +41,11 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" />
     <h1> Best Venues of London</h1>
     <p>A guide to restaurants, bars, cafes and clubs</p>
+    <p>
+      <a href="https://airtable.com/shrvwCH92iV3SJBUe" target="_blank">
+        Suggest a venue
+      </a>
+    </p>
     <hr />
     <VenueList venues={data.allAirtable.edges} />
   </Layout>
