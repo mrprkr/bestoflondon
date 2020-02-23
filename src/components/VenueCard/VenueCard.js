@@ -4,8 +4,10 @@ import TypeIcon from "./TypeIcon"
 // import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import iconLGBT from './assets/icon-lgbt.svg'
+import MapContainer from '../MapContainer'
 
 const Card = styled.div`
+	position:relative;
   background-color: #f9fafc;
   margin-bottom: 50px;
   color: #131b27;
@@ -52,7 +54,8 @@ const TextContainer = styled.div`
 `
 
 const InformationContainer = styled.div`
-  padding: 24px;
+	padding: 24px;
+	z-index: 9;
 `
 
 const ImageContainer = styled.div`
@@ -85,6 +88,12 @@ const Cost = styled.span`
   color: #131b27;
 `
 
+const MapWrapper = styled.div`
+	position: absolute;
+	right: 0;
+	z-index: 0;
+	opacity: 0.6;
+`
 
 const VenueCard = ({ data }) => {
 	// console.log(data)
@@ -146,8 +155,13 @@ const VenueCard = ({ data }) => {
         />
       )
 	}
+	let venueMap = null
+	if(data.Lat && data.Lng){
+		venueMap = <MapContainer lat={data.Lat} lng={data.Lng}/>
+	}
     return (
       <Card>
+        <MapWrapper>{venueMap}</MapWrapper>
         <div>{image}</div>
         <InformationContainer>
           <TextContainer>

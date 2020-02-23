@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import VenueCard from "../components/VenueCard"
+import {Helmet} from "react-helmet"
 
 
 const VenueList = ({ venues }) => {
@@ -44,8 +45,14 @@ const Header = styled.div`
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <Helmet>
+      <link
+        href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css"
+        rel="stylesheet"
+      />
+    </Helmet>
     <SEO title="Home" />
-    
+
     <Header>
       <div>
         <Heading>Best Venues of London</Heading>

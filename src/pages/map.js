@@ -1,17 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from 'styled-components'
-
+import {graphql} from "gatsby"
+import styled from "styled-components"
+import MapContainer from '../components/MapContainer'
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import VenueCard from "../components/VenueCard"
-
-const VenueList = ({ venues }) => {
-  let venueList = venues.map(venue => {
-    return <VenueCard data={venue.data} key={venue.id} />
-  })
-  return <div>{venueList}</div>
-}
+import Helmet from 'react-helmet'
 
 const Header = styled.div`
   padding-top: 24px;
@@ -20,11 +12,16 @@ const Header = styled.div`
 
 const SecondPage = ({ data }) => (
   <Layout>
-    <SEO title="Cafes" />
+    <Helmet>
+      <link
+        href="https://api.mapbox.com/styles/v1/prkr/ck6zhz5880zux1ilej2p9nzsz.html?fresh=true&title=copy&access_token=pk.eyJ1IjoicHJrciIsImEiOiJjajhva3U1NHowNDlyMnhvMDRyOHlhaXpyIn0.OaV3cGWgNo2uze1RYA4Pxg"
+        rel="stylesheet"
+      />
+    </Helmet>
     <Header>
-      <h1>Cafes</h1>
+      <h1>Map View</h1>
     </Header>
-    <VenueList venues={data.allAirtable.nodes} />
+    <MapContainer lat={51.52441} lng={-0.07425} />
   </Layout>
 )
 
@@ -32,18 +29,19 @@ export default SecondPage
 
 export const query = graphql`
   query {
-    allAirtable(filter: {data: {Type: {eq: "Cafe"}}}, sort: {fields: [data___District___data___Name, data___Name]}){
+    allAirtable(
+      filter: { data: { Name: { eq: "Allpress" } } }
+      sort: { fields: [data___District___data___Name, data___Name] }
+    ) {
       nodes {
         id
         data {
           Name
-          Lat
-          Lng
           Cuisine {
             data {
               Name
             }
-          }
+					}
           District {
             data {
               Name
