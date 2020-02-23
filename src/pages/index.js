@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => (
     <Header>
       <div>
         <Heading> Best Venues of London</Heading>
-        <p>A guide to restaurants, bars, cafes and clubs</p>
+        <p>{data.allAirtable.edges.length} of the best restaurants, bars, cafes and clubs</p>
       </div>
       <div>
         <p>
