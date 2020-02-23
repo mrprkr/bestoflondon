@@ -244,18 +244,14 @@ h1 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Serif", -apple-system,
-  BlinkMacSystemFont,
-  Segoe UI,
-  Roboto,
-  Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
+  font-family: "IBM Plex Serif", sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
   line-height: 1.1;
+  font-weight: 400;
+  color: #131b27;
+  margin-bottom: 6px;
 }
 h2 {
   margin-left: 0;

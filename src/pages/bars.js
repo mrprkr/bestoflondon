@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from 'styled-components'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,12 +13,17 @@ const VenueList = ({ venues }) => {
   return <div>{venueList}</div>
 }
 
+const Header = styled.div`
+  padding-top: 24px;
+  padding-bottom: 24px;
+`
+
 const SecondPage = ({ data }) => (
   <Layout>
     <SEO title="Bars" />
-    <br />
-    <h1>Bars</h1>
-    <hr />
+    <Header>
+      <h1>Bars</h1>
+    </Header>
     <VenueList venues={data.allAirtable.nodes} />
   </Layout>
 )

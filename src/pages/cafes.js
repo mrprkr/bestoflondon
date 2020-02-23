@@ -23,7 +23,6 @@ const SecondPage = ({ data }) => (
     <SEO title="Cafes" />
     <Header>
       <h1>Cafes</h1>
-      <hr />
     </Header>
     <VenueList venues={data.allAirtable.nodes} />
   </Layout>
