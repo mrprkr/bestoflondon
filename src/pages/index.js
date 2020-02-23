@@ -1,6 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import styled from 'styled-components'
 
 // import Layout from "../components/layout"
@@ -40,14 +40,19 @@ const Header = styled.div`
   }
 `
 
+
+
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-
+    
     <Header>
       <div>
-        <Heading> Best Venues of London</Heading>
-        <p>{data.allAirtable.edges.length} of the best restaurants, bars, cafes and clubs</p>
+        <Heading>Best Venues of London</Heading>
+        <p>
+          {data.allAirtable.edges.length} of the best restaurants, bars, cafes
+          and clubs
+        </p>
       </div>
       <div>
         <p>

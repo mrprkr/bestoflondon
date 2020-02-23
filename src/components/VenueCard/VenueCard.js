@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import TypeIcon from "./TypeIcon"
 // import PropTypes from "prop-types"
 import Img from "gatsby-image"
-
+import iconLGBT from './assets/icon-lgbt.svg'
 
 const Card = styled.div`
   background-color: #f9fafc;
@@ -71,7 +71,11 @@ const ImageContainer = styled.div`
 const DetailsContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+`
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 const Cost = styled.span`
@@ -115,7 +119,7 @@ const VenueCard = ({ data }) => {
 
 	let lgbtFlag = null;
 	if(data.LGBT_Friendly){
-		lgbtFlag = <span>LGBT</span>
+		lgbtFlag = <img height="30px" style={{marginBottom: "0px"}} src={iconLGBT} />
 	}
 
 	let image = null
@@ -153,10 +157,10 @@ const VenueCard = ({ data }) => {
           </TextContainer>
 
           <DetailsContainer>
-            <div>
+            <IconContainer>
               {typeLabel}
               {lgbtFlag}
-            </div>
+            </IconContainer>
 
             <div>{cost}</div>
           </DetailsContainer>
