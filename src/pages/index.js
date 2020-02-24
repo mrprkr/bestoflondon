@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => (
         rel="stylesheet"
       />
     </Helmet>
-    <SEO title="Home" />
+    <SEO title="All Venues" />
 
     <Header>
       <div>

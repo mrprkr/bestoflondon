@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Best Venues of London`,
     description: `A collection of the best bars, restaurants, cafes and clubs`,
-    author: `@mrprkr`,
+    author: `Michael Parker`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,13 +22,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Best Venues of London`,
+        short_name: `Best of London`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f2f2f2`,
+        theme_color: `#131B27`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/manifest-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
