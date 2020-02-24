@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "best-venues-of-london",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The best venues across London",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "mrprkr",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "dotenv": "^8.2.0",
